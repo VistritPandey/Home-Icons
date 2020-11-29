@@ -62,10 +62,13 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    backgroundColor: "#3232ff",
+    backgroundColor: "#57485d",
     alignItems: "center",
     justifyContent: "center",
     margin: 1,
     height: WIDTH / numColumns,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#fff",
   },
 });
