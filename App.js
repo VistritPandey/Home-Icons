@@ -2,10 +2,11 @@ import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
 
-const numColumns = 3;
+const numColumns = 3; // researched that there are 30 teams in baseball in the US, so thought that 3 teams per column would be perfect. Can change it according to your preference
 
 const WIDTH = Dimensions.get("window").width;
 
+// Don't have the data so just passed dummy numbers
 const dataList = [
   { key: "1" },
   { key: "2" },
