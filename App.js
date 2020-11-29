@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
+
 const numColumns = 3;
 
 const WIDTH = Dimensions.get("window").width;
@@ -14,7 +15,7 @@ const dataList = [
 ];
 export default class App extends Component {
   formatData = (dataList, numColumns) => {
-    const totalRows = Math.floor(data.length / numColumns);
+    const totalRows = Math.floor(dataList.length / numColumns);
     let totalLastRow = dataList.length - totalRows * numColumns;
 
     while (totalLastRow !== 0 && totalLastRow !== numColumns) {
@@ -25,6 +26,9 @@ export default class App extends Component {
   };
 
   _renderItem = ({ item, index }) => {
+    if (item.empty === true) {
+      return <View style={[styles.itemStyle, styles.itemInvisible]} />;
+    }
     return (
       <View style={styles.item}>
         <Text style={styles.itemText}>{item.key}</Text>
@@ -37,7 +41,7 @@ export default class App extends Component {
     return (
       <View style={container}>
         <FlatList
-          data={dataList}
+          data={this.formatData(dataList, numColumns)}
           renderItem={this._renderItem}
           keyExtractor={(item, index) => index.toString()}
           numColumns={numColumns}
