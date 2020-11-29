@@ -13,7 +13,7 @@ export default class App extends Component {
   _renderItem = ({ item, index }) => {
     return (
       <View style={styles.item}>
-        <Text>{item.key}</Text>
+        <Text style={styles.itemText}>{item.key}</Text>
       </View>
     );
   };
@@ -26,6 +26,7 @@ export default class App extends Component {
           data={dataList}
           renderItem={this._renderItem}
           keyExtractor={(item, index) => index.toString()}
+          numColumns={3}
         />
       </View>
     );
@@ -35,17 +36,18 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 35,
   },
   itemText: {
     fontSize: 50,
+    color: "#fff",
   },
   item: {
+    flex: 1,
     backgroundColor: "#3232ff",
     alignItems: "center",
     justifyContent: "center",
     height: 100,
+    margin: 1,
   },
 });
